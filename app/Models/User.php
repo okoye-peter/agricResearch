@@ -76,4 +76,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ratings::class);
     }
+
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
+
+    public function chats()
+    {
+        return $this->hasMany(Chat::class);
+    }
 }

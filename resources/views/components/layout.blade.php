@@ -133,7 +133,7 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li class="possition-static hide-on-mobile-menu">
+                                    {{-- <li class="possition-static hide-on-mobile-menu">
                                         <a href="#">Pages</a>
                                         <div class="template-mega-menu">
                                             <div class="container">
@@ -214,7 +214,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    {{-- <li class="hide-on-desktop-menu">
+                                    <li class="hide-on-desktop-menu">
                                         <a href="#">Pages</a>
                                         <ul class="dropdown-menu-col-1">
                                             <li>
@@ -245,13 +245,13 @@
                                             <li><a href="single-blog.html">Blog Details</a></li>
                                         </ul> --}}
                                     </li>
-                                    <li><a href="#">Shop</a>
+                                    {{-- <li><a href="#">Shop</a>
                                         <ul class="dropdown-menu-col-1">
                                             <li><a href="shop.html">Shop</a></li>
                                             <li><a href="single-shop.html">Shop Details</a></li>
                                         </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    </li> --}}
+                                    {{-- <li><a href="">Chats</a></li> --}}
                                 </ul>
                             </nav>
                         </div>
@@ -348,6 +348,11 @@
                                                 <div class="cart-amount text-white">{{ auth()->user()->name }}</div>
                                             </div>
                                             <div class="cart-items">
+                                                <div class="cart-item">
+                                                    <a href="{{ route('users.message') }}" class="d-block">
+                                                        <i class="fa-solid fa-message"></i> Chats
+                                                    </a>
+                                                </div>
                                                 <div class="cart-item">
                                                     <a href="{{ route('blogs.create') }}" class="d-block"><i class="fa-solid fa-calendar-plus"></i> create blog</a>
                                                 </div>

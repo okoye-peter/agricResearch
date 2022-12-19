@@ -2,13 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
+// use App\Models\Chat;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
+    public function viewProfile(User $user)
+    {
+        $user = $user->load(['file']);
+        if (auth()->check()) {
+            # code...
+            $auth_user = auth()->user()->load(['file']);
+            return view('profile', compact('user', 'auth_user'));
+        }
+        return view('profile', compact('user'));
+    }
     /**
      * Display the user's profile form.
      *

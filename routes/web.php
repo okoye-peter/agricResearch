@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\PageController;
+use App\Models\Blog;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,14 @@ Route::resource('blogs', BlogController::class);
 Route::group(['middleware' => 'auth'], function(){
     Route::post('/blogs/{blog}/ratings', [BlogController::class, 'rateBlog'])->name('blogs.rate');
     Route::post('/ratings/{blog}/reply', [BlogController::class, 'replyRating'])->name('ratings.reply');
+    Route::get('users/chat/unread', [ChatController::class, 'getUreadChats'])->name('users.message');
+    Route::get('chat/{user}', [ChatController::class, 'getMyChatWithUser'])->name('user.chats');
+    Route::get('chat/{user}/markedAsRead', [ChatController::class, 'markedUreadChatAsRead'])->name('chats.read');
+    Route::post('chat/{user}', [ChatController::class, 'storeChat']);
+    Route::get('/room/{room}/chats', [ChatController::class, 'getRoomChat'])->name('room.chats');
 });
+Route::get('profile/{user}', [ProfileController::class, 'viewProfile'])->name('users.show');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
