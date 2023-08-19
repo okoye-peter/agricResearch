@@ -247,7 +247,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href={{ route('blogs.show', $trends->get($i)->id) }}">
+                                                <a href="{{ route('blogs.show', $trends->get($i)->id) }}">
                                                     <i class="fas fa-user"></i>by <span>{{ $trends->get($i)->author->name }}</span>
                                                 </a>
                                             </li>
